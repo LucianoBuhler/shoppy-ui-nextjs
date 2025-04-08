@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-// import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { Container, CssBaseline } from "@mui/material";
 import Header from "./header/header";
-// import darkTheme from "./dark.theme";
 import Providers from "./providers";
 import authenticated from "./auth/authenticated";
 
@@ -28,24 +26,17 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-const isAuthenticated = await authenticated();
-
+  const isAuthenticated = await authenticated();
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* <AppRouterCacheProvider>
-          <ThemeProvider theme={darkTheme}> */}
         <Providers authenticated={isAuthenticated}>
-          {/* <Providers authenticated={isAuthenticated}> */}
           <CssBaseline />
           <Header />
           <Container> {children} </Container>
         </Providers>
-
-          {/* </ThemeProvider>
-        </AppRouterCacheProvider> */}
       </body>
     </html>
   );

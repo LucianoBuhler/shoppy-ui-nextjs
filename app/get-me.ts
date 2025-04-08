@@ -1,6 +1,6 @@
 "use server";
 
-import { get } from "./util/fetch";
+import { get } from "./common/util/fetch";
 // import { API_URL } from "./constants/api";
 // import { cookies } from "next/headers";
 
