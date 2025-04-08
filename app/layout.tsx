@@ -7,6 +7,7 @@ import Header from "./header/header";
 // import darkTheme from "./dark.theme";
 import Providers from "./providers";
 import authenticated from "./auth/authenticated";
+import logout from "./auth/logout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,12 +36,9 @@ const isAuthenticated = await authenticated();
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* <AppRouterCacheProvider>
-          <ThemeProvider theme={darkTheme}> */}
         <Providers authenticated={isAuthenticated}>
-          {/* <Providers authenticated={isAuthenticated}> */}
           <CssBaseline />
-          <Header />
+          <Header logout={logout} />
           <Container> {children} </Container>
         </Providers>
 

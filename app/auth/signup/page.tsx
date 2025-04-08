@@ -2,11 +2,11 @@
 
 import { Button, Link, Stack, TextField } from "@mui/material";
 import NextLink from "next/link";
-import { useFormState } from "react-dom";
+import { useActionState } from "react";
 import createUser from "./create-user";
 
 export default function Signup() {
-  const [state, formAction] = useFormState(createUser, {error: ""})
+  const [state, formAction] = useActionState(createUser, {error: ""})
 
   return (
     <form action={formAction} className="w-full max-w-xs">
@@ -27,6 +27,7 @@ export default function Signup() {
           name="password"
           variant="outlined"
           type="password"
+          autoComplete="current-password"
           required
           helperText={state.error}
           error={!!state.error}/>
