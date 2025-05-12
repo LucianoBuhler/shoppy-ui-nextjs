@@ -12,7 +12,6 @@ interface ProviderProps {
 }
 
 export default function Providers({ children, authenticated }: ProviderProps) {
-  // const isAuthenticated = await authenticated();
   return (
     <AppRouterCacheProvider>
       <ThemeProvider theme={darkTheme}> 
@@ -20,10 +19,7 @@ export default function Providers({ children, authenticated }: ProviderProps) {
           {children}
           {authenticated ? <div>Authenticated</div> : <div>Not Authenticated</div>}
         </AuthContext.Provider>
-        {/* <AuthContext.Provider value={isAuthenticated}>
-          {children}
-        </AuthContext.Provider> */}
       </ThemeProvider>
     </AppRouterCacheProvider>
-  )
+  );
 }

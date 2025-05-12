@@ -37,7 +37,7 @@ export default function Header({ logout }: HeaderProps) {
     setAnchorElNav(null);
   };
 
-  const pages = isAuthenticated ? routes : unauthenticatedRoutes
+  const pages = isAuthenticated ? routes : unauthenticatedRoutes;
 
   return (
     <AppBar position="static">
