@@ -6,7 +6,7 @@ import { getErrorMessage } from "./errors";
 //   Cookie: cookies().toString(),
 // });
 
-const getHeaders = async () => {
+export const getHeaders = async () => {
   const cookieStore = await cookies();
   const cookieString = cookieStore.toString();
   return {
@@ -26,7 +26,7 @@ export const post = async (path: string, formData: FormData) => {
   if (!res.ok) {
     return { error: getErrorMessage(parsedRes) };
   }
-  return { error: "" };
+  return { error: "", data: parsedRes };
 };
 
 export const get = async <T>(path: string, tags?: string[]) => {

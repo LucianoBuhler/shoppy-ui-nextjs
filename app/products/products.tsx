@@ -15,7 +15,7 @@ export default async function Products() {
     );
   } else {
     return (
-      <Grid container spacing={3}>
+      <Grid container spacing={3} sx={{ height: "85vh", overflow: "scroll" }}>
         { products.map((product) => (
           // <Grid key={product.id} sm={6} lg={4} xs={12}>
           <Grid key={product.id} size={{ xs: 12, sm: 6, lg: 4}}>
