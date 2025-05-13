@@ -39,11 +39,11 @@ const isAuthenticated = await authenticated();
         <Providers authenticated={isAuthenticated}>
           <CssBaseline />
           <Header logout={logout} />
-          <Container> {children} </Container>
+          <Container className={isAuthenticated ? "mt-10" : ""}>
+            {children} 
+          </Container>
         </Providers>
 
-          {/* </ThemeProvider>
-        </AppRouterCacheProvider> */}
       </body>
     </html>
   );

@@ -33,7 +33,9 @@ const setAuthCookie = async (response: Response) => {
       cookieStore.set({
       name: AUTHENTICATION_COOKIE,
       value: token,
-      secure: true,
+      // secure: true,
+      secure: process.env.NODE_ENV === 'production', // ⬅ secure only in prod
+      sameSite: 'lax',
       httpOnly: true,
       expires: new Date(jwtDecode(token).exp! * 1000),
     });

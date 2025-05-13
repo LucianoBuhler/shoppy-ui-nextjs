@@ -17,7 +17,7 @@ export default function Providers({ children, authenticated }: ProviderProps) {
       <ThemeProvider theme={darkTheme}> 
         <AuthContext.Provider value={authenticated}>
           {children}
-          {authenticated ? <div>Authenticated</div> : <div>Not Authenticated</div>}
+          {/* {authenticated ? <div>Authenticated</div> : <div>Not Authenticated</div>} */}
         </AuthContext.Provider>
       </ThemeProvider>
     </AppRouterCacheProvider>
