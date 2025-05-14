@@ -4,6 +4,8 @@ import Product from "./product";
 
 export default async function Products() {
   const products = await getProducts();
+
+  // console.log("Products", products);
   
   if (!products || products.length === 0) { 
     return (

@@ -32,9 +32,9 @@ export const post = async (path: string, formData: FormData) => {
 export const get = async <T>(path: string, tags?: string[]) => {
   const headersData = await getHeaders();
   console.log("[get] headersData: ", headersData);
-  const res = await fetch(`${API_URL}/${path}`, {
-    headers: { ...headersData },
-    next: { tags },
-  });
+      const res = await fetch(`${API_URL}/${path}`, {
+        headers: { ...headersData },
+        next: { tags },
+      });
   return res.json() as T;
 };
