@@ -14,13 +14,13 @@ export const getHeaders = async () => {
   };
 };
 
-export const post = async (path: string, formData: FormData) => {
+export const post = async (path: string, data: FormData | object) => {
   const headersData = await getHeaders();
-  console.log("[post] headersData: ", headersData);
+  const body = data instanceof FormData ? Object.fromEntries(data) : data;
   const res = await fetch(`${API_URL}/${path}`, {
     method: "POST",
     headers: { "Content-Type": "application/json", ...headersData },
-    body: JSON.stringify(Object.fromEntries(formData)),
+    body: JSON.stringify(body),
   });
   const parsedRes = await res.json();
   if (!res.ok) {
@@ -31,7 +31,6 @@ export const post = async (path: string, formData: FormData) => {
 
 export const get = async <T>(path: string, tags?: string[]) => {
   const headersData = await getHeaders();
-  console.log("[get] headersData: ", headersData);
       const res = await fetch(`${API_URL}/${path}`, {
         headers: { ...headersData },
         next: { tags },
